@@ -42,7 +42,7 @@ def make_highlight_image(img, x, y, radius=4, color=(255,0,0)):
     return img2
 
 # ---------- UI ----------
-st.title("🎨 Color Picker — Fix (No crop) + Manual Coordinate Input")
+st.title("Color Picker")
 st.write("Upload gambar, klik untuk ambil warna, atau masukkan koordinat X/Y manual (koordinat original).")
 
 uploaded = st.file_uploader("Upload gambar (PNG/JPG)", type=["png","jpg","jpeg"])
@@ -103,7 +103,7 @@ if uploaded:
         # nomor input berdasarkan ukuran asli gambar
         x_manual = st.number_input("X (0 - {})".format(ow-1), min_value=0, max_value=ow-1, value=st.session_state.selected_x or 0, step=1)
         y_manual = st.number_input("Y (0 - {})".format(oh-1), min_value=0, max_value=oh-1, value=st.session_state.selected_y or 0, step=1)
-        if st.button("Go (ambil warna di koordinat)"):
+        if st.button("Ambil warna di koordinat)"):
             st.session_state.selected_x = int(x_manual)
             st.session_state.selected_y = int(y_manual)
             st.experimental_rerun()
